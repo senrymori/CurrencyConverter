@@ -33,3 +33,11 @@ export const ButtonText = styled.Text`
     text-transform: uppercase;
     letter-spacing: 2px;
 `
+export const SwitchConvert = styled.View`
+    background-color: #0E3C57;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+`

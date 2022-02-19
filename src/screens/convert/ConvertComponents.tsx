@@ -1,8 +1,10 @@
 import React from 'react';
 import SelectDropdown from "react-native-select-dropdown";
 import convert from "../../store/Convert";
-import {ContainerConvert, TitleConvert} from "./ConvertCSS";
+import {ContainerConvert, SwitchConvert, TitleConvert} from "./ConvertCSS";
 import {observer} from "mobx-react-lite";
+import IconMC from "react-native-vector-icons/MaterialCommunityIcons";
+import {TouchableOpacity} from "react-native";
 
 export const SelectorConvert = observer(() => {
     return (
@@ -10,7 +12,7 @@ export const SelectorConvert = observer(() => {
             <SelectDropdown
                 data={convert.allCurrency}
                 onSelect={(selectedItem) => convert.setInConv(selectedItem)}
-                defaultValue={convert.allCurrency[0]}
+                defaultValue={convert.inConv}
                 buttonTextAfterSelection={(selectedItem) => {
                     return selectedItem
                 }}
@@ -23,7 +25,7 @@ export const SelectorConvert = observer(() => {
             <SelectDropdown
                 data={convert.allCurrency}
                 onSelect={(selectedItem) => convert.setOutConv(selectedItem)}
-                defaultValue={convert.allCurrency[1]}
+                defaultValue={convert.outConv}
                 buttonTextAfterSelection={(selectedItem) => {
                     return selectedItem
                 }}
@@ -32,6 +34,11 @@ export const SelectorConvert = observer(() => {
                 }}
                 buttonStyle={{width: '30%'}}
             />
+            <TouchableOpacity onPress={() => convert.switchSelected()}>
+                <SwitchConvert>
+                    <IconMC name="swap-horizontal-bold" color="white" size={25} />
+                </SwitchConvert>
+            </TouchableOpacity>
         </ContainerConvert>
     );
 });

@@ -42,6 +42,12 @@ class Convert {
     setHistoryStorage(history: IHistory[]) {
         this.history = history;
     }
+    switchSelected() {
+        let inToOut = this.inConv;
+        let outToIn = this.outConv;
+        this.inConv = outToIn;
+        this.outConv = inToOut;
+    }
 }
 
 export default new Convert();
